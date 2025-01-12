@@ -7,13 +7,17 @@ export default async function Products() {
     cache: "force-cache",
     next: {
       revalidate: 120,
-    }
+    },
   });
 
   if (!response.ok) {
     notFound();
   }
   const data = await response.json();
+  return <ShowProducts data={data} />;
+}
+
+function ShowProducts({ data }: { data: any[] }) {
   return (
     <div>
       <h1>Products</h1>

@@ -5,7 +5,7 @@ import { useFormStatus } from "react-dom";
 const initialState = { message: "" };
 export default function AddProductForm() {
   const [state, formAction, pending] = useActionState(addProduct, initialState);
-  console.log("🚀 ~ AddProductForm ~ state:", state);
+  console.log("🚀 ~ AddProductForm ~ state:", state)
   return (
     <form action={formAction} className="flex mb-4 flex-col gap-y-2 max-w-md">
       <label className="text-green-50" htmlFor="title">
@@ -27,7 +27,6 @@ export default function AddProductForm() {
 
 const SubmitButton = () => {
   const data = useFormStatus();
-  console.log("🚀 ~ SubmitButton ~ data:", data);
 
   return (
     <button
