@@ -1,5 +1,6 @@
 import { notFound, redirect, RedirectType } from "next/navigation";
 import { getData } from "./utils/utils";
+import Link from "next/link";
 
 export default async function Home() {
   // const data = await getData();
@@ -17,6 +18,7 @@ export default async function Home() {
         <input type="number" name="age" />
         <input type="submit" value="Submit" />
       </form>
+      <Link href="/contact">contact</Link>
     </div>
   );
 }

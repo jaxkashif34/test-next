@@ -7,7 +7,7 @@ export default function AddProductForm() {
   const [state, formAction, pending] = useActionState(addProduct, initialState);
   console.log("🚀 ~ AddProductForm ~ state:", state)
   return (
-    <form action={formAction} className="flex mb-4 flex-col gap-y-2 max-w-md">
+    <form action={formAction} className="flex mb-4 flex-col gap-y-2 max-w-md" method="post">
       <label className="text-green-50" htmlFor="title">
         Title
       </label>
