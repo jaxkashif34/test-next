@@ -2,13 +2,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 // export const revalidate = 60; // revalidate at most every hour
 // export const fetchCache = "default-cache";
+export const dynamic = "auto";
 export default async function Products() {
-  const response = await fetch("http://localhost:3001/products", {
-    cache: "force-cache",
-    next: {
-      revalidate: 120,
-    }
-  });
+  const response = await fetch("http://localhost:3001/products");
 
   if (!response.ok) {
     notFound();
