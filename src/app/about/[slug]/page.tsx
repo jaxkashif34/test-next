@@ -5,7 +5,7 @@ type Props = {
 // export const dynamicParams = false;
 export default async function Page({ searchParams, params }: Props) {
   const { slug } = await params;
-  const response = await fetch("http://localhost:3001/about/api");
+  const response = await fetch("http://localhost:3001/api");
   const data = await response.json();
   return (
     <div>

@@ -31,7 +31,7 @@ export default function AddProductFormOptimistic({
         return (
           <div key={i} className="text-gray-100">
             <span>{item.text}</span>
-            <span>{`${!item?.sending ? "" : "loading..."}`}</span>
+            <span>{`${!item?.sending ? "" : " (loading...) "}`}</span>
           </div>
         );
       })}

@@ -3,10 +3,9 @@ import { cookies } from "next/headers";
 export async function DynamicComponent() {
   const rawCookies = await cookies();
   const id = rawCookies.get("id");
-  console.log("🚀 ~ DynamicComponent ~ id:", id)
   if (!id) return <p>Not logged in</p>;
-  const response = await fetch(`http://localhost:3001/contacts/${id.value}`);
-  const data = await response.json();
+  // const response = await fetch(`http://localhost:3001/contacts/${id.value}`);
+  const data = await getData(id.value);
   if (!data) return <p>Not logged in data</p>;
   return (
     <div key={data.id} className="space-y-2 bg-gray-600">

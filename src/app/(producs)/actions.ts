@@ -6,6 +6,7 @@ import { Message } from "./add-product/addProductFormOptimistic";
 export default async function addProduct(prevState: any, formData: FormData) {
   await new Promise((resolve) => setTimeout(resolve, 1000));
   const data = Object.fromEntries(formData);
+  console.log("🚀 ~ addProduct ~ prevState:", data)
   const response = await fetch("http://localhost:3001/products", {
     method: "POST",
     body: JSON.stringify(data),

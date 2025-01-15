@@ -5,21 +5,25 @@ import { useFormStatus } from "react-dom";
 const initialState = { message: "" };
 export default function AddProductForm() {
   const [state, formAction, pending] = useActionState(addProduct, initialState);
-  console.log("🚀 ~ AddProductForm ~ state:", state)
+  // TODO: test the Incremental static generation with revalidateTags and revalidatePaths api
   return (
-    <form action={formAction} className="flex mb-4 flex-col gap-y-2 max-w-md" method="post">
-      <label className="text-green-50" htmlFor="title">
+    <form action={formAction} className="flex mb-4 flex-col gap-y-2 max-w-md text-grey-50">
+      <label className="text-gray-50" htmlFor="isHuman">
+        is human ?
+      </label>
+      <input className="text-gray-800" type="file" id="isHuman" name="isHuman" />
+      <label className="text-gray-50" htmlFor="title">
         Title
       </label>
-      <input type="text" id="title" name="title" />
-      <label className="text-green-50" htmlFor="price">
+      <input className="text-gray-800" type="text" id="title" name="title" />
+      <label className="text-gray-50" htmlFor="price">
         Price
       </label>
-      <input type="number" id="price" name="price" />
-      <label className="text-green-50" htmlFor="description">
+      <input className="text-gray-800" type="number" id="price" name="price" />
+      <label className="text-gray-50" htmlFor="description">
         Description
       </label>
-      <input type="text" id="description" name="description" />
+      <input className="text-gray-800" type="text" id="description" name="description" />
       <SubmitButton />
     </form>
   );

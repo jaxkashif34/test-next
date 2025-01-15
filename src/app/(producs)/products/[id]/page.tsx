@@ -1,6 +1,8 @@
 import Link from "next/link";
-export const revalidate = 60 // revalidate at most every hour
-export const fetchCache = "default-cache";
+// export const revalidate = 60 // revalidate at most every hour
+// export const fetchCache = "default-cache";
+export const dynamic = "error"; // (didn't quite understand it why it not work when we set the value to error)
+// export const dynamicParams = true; // true | false,
 export default async function ProductDetails({
   params,
   searchParams,
@@ -11,7 +13,7 @@ export default async function ProductDetails({
   const { id } = await params;
   const response = await fetch(`http://localhost:3001/products/${id}`);
   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status}`);
+    return <p>not found {id}</p>;
   }
   const data = await response.json();
   return (
@@ -20,9 +22,19 @@ export default async function ProductDetails({
       <h6>{data.price}</h6>
       <p>{data.description}</p>
       <div className="flex gap-2">
-        <Link className="p-2 bg-green-100 rounded-md text-gray-700" href="/products">Back to products</Link>
+        <Link
+          className="p-2 bg-green-100 rounded-md text-gray-700"
+          href="/products"
+        >
+          Back to products
+        </Link>
         {/* <Link className="p-2 bg-green-100 rounded-md text-gray-700" aria-disabled="true" href={`/products/${id}/edit`}>Edit</Link> */}
-        <Link className="p-2 bg-green-100 rounded-md text-gray-700" href={`/add-product`}>Add New</Link>
+        <Link
+          className="p-2 bg-green-100 rounded-md text-gray-700"
+          href={`/add-product`}
+        >
+          Add New
+        </Link>
       </div>
     </div>
   );
